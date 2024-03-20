@@ -2,15 +2,7 @@ package game;
 
 import java.util.ArrayList;
 
-/**
- * 2048 Board
- * Methods to complete:
- * updateOpenSpaces(), addRandomTile(), swipeLeft(), mergeLeft(),
- * transpose(), flipRows(), makeMove(char letter)
- * 
- * @author Kal Pandit
- * @author Ishaan Ivaturi
- **/
+
 public class Board {
     private int[][] gameBoard;               // the game board array
     private ArrayList<BoardSpot> openSpaces; // the ArrayList of open spots: board cells without numbers.
@@ -65,8 +57,6 @@ public class Board {
      * 1. Select a tile t by picking a random open space from openSpaces
      * 2. Pick a value v by picking a double from 0 to 1 (not inclusive of 1); < .1 means the tile is a 4, otherwise 2
      * 3. Update the tile t on gameBoard with the value v
-     * 
-     * Note: On the driver updateOpenStapes() is called before this method to ensure that openSpaces is up to date.
      **/
     public void addRandomTile() {
         // WRITE YOUR CODE HERE
@@ -82,7 +72,6 @@ public class Board {
      * Swipes the entire board left, shifting all nonzero tiles as far left as possible.
      * Maintains the same number and order of tiles. 
      * After swiping left, no zero tiles should be in between nonzero tiles. 
-     * (ex: 0 4 0 4 becomes 4 4 0 0).
      **/
     public void swipeLeft() {
         // WRITE YOUR CODE HERE
@@ -173,9 +162,6 @@ public class Board {
     /**
      * Calls previous methods to make right, left, up and down moves.
      * Swipe, merge neighbors, and swipe. Rotate to achieve this goal as needed.
-     * 
-     * @param letter the first letter of the action to take, either 'L' for left, 'U' for up, 'R' for right, or 'D' for down
-     * NOTE: if "letter" is not one of the above characters, do nothing. 
      **/
     public void makeMove(char letter) {
         // WRITE YOUR CODE HERE
@@ -274,11 +260,7 @@ public class Board {
         }
     }
 
-    /**
-     * Seed Constructor: Allows students to set seeds to debug random tile cases.
-     * 
-     * @param seed the long seed value
-     **/
+    
     public Board(long seed) {
         StdRandom.setSeed(seed);
         gameBoard = new int[4][4];
